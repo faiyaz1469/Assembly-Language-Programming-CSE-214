@@ -1,0 +1,82 @@
+Turbo Assembler	 Version 4.1	    05/12/16 02:08:43	    Page 1
+c:\assembly\gtest.asm
+
+
+
+      1	0000			     .MODEL small
+      2	0000			     .STACK 100h
+      3	0000			     .DATA
+      4
+      5	0000			     .CODE
+      6				     .startup
+1     7	0000			     @Startup:
+1     8	0000  BA 0000s			     MOV     DX,@data
+1     9	0003  8E DA			     MOV     DS,DX
+1    10	0005  8C D3			     MOV     BX,SS
+1    11	0007  2B DA			     SUB     BX,DX
+1    12	0009  D1 E3 D1 E3 D1 E3	D1+	     SHL     BX,4
+     13	      E3
+1    14	0011  FA			     CLI
+1    15	0012  8E D2			     MOV     SS,DX
+1    16	0014  03 E3			     ADD     SP,BX
+1    17	0016  FB			     STI
+     18	0017  B8 0000s		     mov ax,@data
+     19	001A  8E D8		     mov ds,ax
+     20
+     21	001C  B8 0006		     mov ax,6
+     22	001F  CD 10		     int 10h
+     23
+     24	0021  B4 0C		     mov ah,0Ch
+     25	0023  B0 01		     mov al,1
+     26	0025  B9 012D		     mov cx,301
+     27	0028  BA 0064		     mov dx,100
+     28
+     29	002B			     L1:
+     30	002B  CD 10		     int 10h
+     31	002D  41		     inc cx
+     32	002E  81 F9 0258	     cmp cx,600
+     33	0032  7E F7		     jle L1
+     34
+     35	0034  B4 00		     mov ah,0
+     36	0036  CD 16		     int 16h
+     37	0038  B8 0003		     mov ax,3
+     38	003B  CD 10		     int 10h
+     39
+     40	003D  B4 4C		     mov ah,4Ch
+     41	003F  CD 21		     int 21h
+     42
+     43				     END
+Turbo Assembler	 Version 4.1	    05/12/16 02:08:43	    Page 2
+Symbol Table
+
+
+
+
+Symbol Name			  Type	 Value
+
+??DATE				  Text	 "05/12/16"
+??FILENAME			  Text	 "gtest	  "
+??TIME				  Text	 "02:08:43"
+??VERSION			  Number 040A
+@32BIT				  Text	 0
+@CODE				  Text	 _TEXT
+@CODESIZE			  Text	 0
+@CPU				  Text	 0101H
+@CURSEG				  Text	 _TEXT
+@DATA				  Text	 DGROUP
+@DATASIZE			  Text	 0
+@FILENAME			  Text	 GTEST
+@INTERFACE			  Text	 000H
+@MODEL				  Text	 2
+@STACK				  Text	 DGROUP
+@STARTUP			  Near	 _TEXT:0000
+@WORDSIZE			  Text	 2
+L1				  Near	 _TEXT:002B
+
+Groups & Segments		  Bit Size Align  Combine Class
+
+DGROUP				  Group
+  STACK				  16  0100 Para	  Stack	  STACK
+  _DATA				  16  0000 Word	  Public  DATA
+_TEXT				  16  0041 Word	  Public  CODE
+
