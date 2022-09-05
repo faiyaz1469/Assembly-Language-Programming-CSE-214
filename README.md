@@ -5,20 +5,27 @@ This is the assembly language course CSE 214 of BUET,CSE in L-2,T-2
 https://youtu.be/8NwturdxzrY
 
 # How to run the program
+
 ## Install DOSBox from the link below according	to your OS
 http://www.dosbox.com/download.php?main=1
 
-## Create	a	folder in	C: drive in	windows, rename	it “dosprogs”	for	example. For Ubuntu/Mac	it is	created	in home folder of	the	user
+## Create	a	folder in	C: drive in	windows, rename	it “dosprogs”	 
+For Ubuntu/Mac it is	created	in home folder of	the	user
 
 ## Copy	the	provided “tasm”	folder to	the	“dosprogs” folder	created earlier
 
+
 ## Start DOSBox. Write the command for respected OS in DOSBox	command	window:
+
 Windows:	mount	c	C:\dosprogs
+
 Ubuntu/Mac:	mount	c	~\dosprogs
 
-## Now type C: in	the	DOSBox command window and	press	enter
+## Now type the following command in	the	DOSBox command window and	press	enter
+C:
 
-## Now type cd tasm\BIN
+## Then type the following command
+cd tasm\BIN
 
 ## Copy	the	GAME.asm file in to the tasm\BIN folder.	
 
